@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Phishing Websites</title>
+    <title>Guardian Shield</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="Free HTML Templates" name="keywords">
     <meta content="Free HTML Templates" name="description">
@@ -32,18 +32,281 @@
 
     <!-- Additional Stylesheet from second head -->
     <link href="../static/css/freelancer.min.css" rel="stylesheet">
-
     <style>
-        #loading {
-            background: url('../static/ajax-loader.gif') no-repeat center center;
-            position: absolute;
-            top: 0;
-            left: 59;
-            height: 100%;
-            width: 86%;
-            z-index: 9999999;
+        .card {
+            background-color: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
         }
+        .card-header {
+            background-color: #343a40;
+            color: #ffffff;
+            font-weight: bold;
+            padding: 0.75rem 1.25rem;
+            border-bottom: 1px solid #dee2e6;
+        }
+        .card-body {
+            padding: 1.25rem;
+        }
+        .card-title {
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+        }
+        .card-text {
+            font-size: 1rem;
+            color: #6c757d;
+        }
+        .logo {
+            width: 50px;
+            height: 50px;
+            margin-right: 10px;
+        }
+        .heading {
+            display: flex;
+            align-items: center;
+        }
+        .navbar-brand h1 {
+            font-size: 1.5rem;
+            margin: 0;
+            color: #ffffff;
+        }
+        .bg-header {
+            background: linear-gradient(45deg, #6a11cb, #2575fc);
+            color: white;
+        }
+        .divider-custom {
+            margin: 2rem 0;
+            text-align: center;
+        }
+        .divider-custom-line {
+            width: 100px;
+            height: 1px;
+            background-color: #6c757d;
+            margin: 0 auto;
+        }
+        .divider-custom-icon {
+            width: 50px;
+            height: 50px;
+            background-color: #6c757d;
+            border-radius: 50%;
+            display: inline-block;
+            margin: 0 auto;
+        }
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #007bff;
+            color: white;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .back-to-top i {
+            font-size: 24px;
+        }
+        .bg-dark {
+            background-color: #343a40 !important;
+        }
+        .text-white {
+            color: #ffffff !important;
+        }
+        .text-primary {
+            color: #007bff !important;
+        }
+        .text-uppercase {
+            text-transform: uppercase !important;
+        }
+        .fw-bold {
+            font-weight: 700 !important;
+        }
+        .display-4 {
+            font-size: 2.5rem;
+            font-weight: 700;
+        }
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
+        }
+        .btn {
+            padding: 0.5rem 1rem;
+            font-size: 1rem;
+            border-radius: 0.25rem;
+        }
+        .table {
+            width: 100%;
+            margin-bottom: 1rem;
+            color: #212529;
+        }
+        .table-striped tbody tr:nth-of-type(odd) {
+            background-color: rgba(0, 0, 0, 0.05);
+        }
+        .table-striped tbody tr:nth-of-type(even) {
+            background-color: #f8f9fa;
+        }
+
+        .table th, .table td {
+            padding: 0.75rem;
+            vertical-align: top;
+            border-top: 1px solid #dee2e6;
+        }
+        .table th {
+            background-color: #f8f9fa;
+            font-weight: 600;
+        }
+        .table td {
+            background-color: #ffffff;
+        }
+
+        .table-striped {
+            border-collapse: collapse;
+            width: 100%;
+            margin-bottom: 1rem;
+        }
+
+        .table-striped th, .table-striped td {
+            padding: 0.75rem;
+            text-align: left;
+            border-bottom: 1px solid #dee2e6;
+        }
+        .table-striped th {
+            background-color: #f8f9fa;
+            font-weight: 600;
+        }
+        .table-striped td {
+            background-color: #ffffff;
+        }
+
+        .table-striped tr:nth-child(odd) {
+            background-color: rgba(0, 0, 0, 0.05);
+        }
+        .table-striped tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        .form-group {
+            margin-bottom: 1rem;
+        }
+        .form-group input[type="button"] {
+            padding: 0.5rem 1rem;
+            font-size: 1rem;
+            border-radius: 0.25rem;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .form-group input[type="button"]:hover {
+            background-color: #0056b3;
+        }
+        .form-group input[type="button"]:focus {
+            outline: none;
+            box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+        }
+        .form-group input[type="button"]:active {
+            background-color: #004085;
+        }
+        .form-group #loading {
+            display: none;
+            margin-top: 20px;
+            text-align: center;
+        }
+        .form-group #loading .spinner {
+            border: 4px solid rgba(0, 0, 0, 0.1);
+            border-left-color: #007bff;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+        .bg-header {
+            background: linear-gradient(45deg, #6a11cb, #2575fc);
+            color: white;
+        }
+        .navbar {
+            background-color: #343a40;
+        }
+
+        .navbar-brand {
+            color: white;
+            font-size: 1.5rem;
+        }
+        .navbar-brand:hover {
+            color: #007bff;
+        }
+        .navbar-nav .nav-link {
+            color: white;
+            font-size: 1rem;
+            padding: 0.5rem 1rem;
+        }
+        .navbar-nav .nav-link:hover {
+            color: #007bff;
+        }
+        .navbar-toggler {
+            border: none;
+        }
+        .navbar-toggler .fa-bars {
+            color: white;
+            font-size: 1.5rem;
+        }
+        .navbar-collapse {
+            justify-content: flex-end;
+        }
+        .navbar-collapse .navbar-nav {
+            margin-right: 20px;
+        }
+        .navbar-collapse .navbar-nav .nav-item {
+            margin-left: 15px;
+        }
+        .navbar-collapse .navbar-nav .nav-item.active .nav-link {
+            color: #007bff;
+            font-weight: bold;
+        }
+        .navbar-collapse .navbar-nav .nav-item.active .nav-link:hover {
+            color: #0056b3;
+        }
+        .navbar-collapse .navbar-nav .nav-item .nav-link {
+            transition: color 0.3s ease;
+        }
+        .navbar-collapse .navbar-nav .nav-item .nav-link:hover {
+            color: #007bff;
+        }
+        .navbar-collapse .navbar-nav .nav-item .nav-link.active {
+            color: #007bff;
+            font-weight: bold;
+        }
+        .navbar-collapse .navbar-nav .nav-item .nav-link.active:hover {
+            color: #0056b3;
+        }
+        .navbar-collapse .navbar-nav .nav-item .nav-link:focus {
+            outline: none;
+            box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+        }
+        .navbar-collapse .navbar-nav .nav-item .nav-link:active {
+            color: #004085;
+        }
+        
+
     </style>
+
+   
 </head>
 
 <body id="page-top">
@@ -57,7 +320,10 @@
     <div class="container-fluid position-relative p-0">
         <nav class="navbar navbar-expand-lg navbar-dark px-5 py-3 py-lg-0">
             <a href="{{url_for('first')}}" class="navbar-brand p-0">
-                <h1 class="m-0">Phishing Websites</h1>
+            <div class="heading">
+                <img src="../static/img/GSlogo.png" alt="logo" class="logo">
+                <h1 class="m-0">Guardian Shield</h1>
+            </div>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                 <span class="fa fa-bars"></span>
@@ -86,7 +352,7 @@
     <div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
         <div class="container py-5">
             <div class="section-title text-center position-relative pb-3 mb-5 mx-auto" style="max-width: 600px;">
-                <h5 class="fw-bold text-primary text-uppercase">Detection of phishing websites</h5>
+                <h5 class="fw-bold text-primary text-uppercase">Detecting phishing URL's</h5>
                 <h1 class="mb-0">Preview</h1>
             </div>
 

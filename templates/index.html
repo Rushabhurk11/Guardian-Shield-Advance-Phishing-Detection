@@ -29,6 +29,207 @@
 
     <!-- Template Stylesheet -->
     <link href="../static/css/style.css" rel="stylesheet">
+
+    <style>
+        
+        .logo {
+            width: 50px;
+            height: 50px;
+            margin-right: 10px;
+        }
+
+        .heading {
+            display: flex;
+            align-items: center;
+        }
+
+        .form__input {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .form__label {
+            font-weight: bold;
+        }
+
+        #form1 {
+            margin-top: 20px;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
+        }
+        .btn {
+            padding: 10px 20px;
+            border-radius: 5px;
+            color: white;
+            border: none;
+        }
+        .btn:hover {
+            opacity: 0.8;
+        }
+        .bg-header {
+            background: url('../static/img/header-bg.jpg') no-repeat center center;
+            background-size: cover;
+        }
+        .bg-header h1 {
+            color: white;
+            font-size: 3rem;
+        }
+        .bg-header a {
+            color: white;
+            text-decoration: none;
+        }
+        .bg-header a:hover {
+            text-decoration: underline;
+        }
+        .section-title h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        .section-title h5 {
+            font-size: 1.2rem;
+            color: #007bff;
+            margin-bottom: 10px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px;
+        }
+        .form {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        .form__input:focus {
+            border-color: #007bff;
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+        }
+        .form__input::placeholder {
+            color: #6c757d;
+        }
+        .form__input:focus::placeholder {
+            color: #007bff;
+        }
+        .form__input {
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+        .spinner {
+            border: 4px solid rgba(0, 0, 0, 0.1);
+            border-top: 4px solid #007bff;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .bg-dark {
+            background-color: #343a40 !important;
+        }
+        .text-white {
+            color: #fff !important;
+        }
+        .text-primary {
+            color: #007bff !important;
+        }
+        .text-center {
+            text-align: center;
+        }
+        .mb-0 {
+            margin-bottom: 0 !important;
+        }
+        .mt-5 {
+            margin-top: 3rem !important;
+        }
+        .py-5 {
+            padding-top: 3rem !important;
+            padding-bottom: 3rem !important;
+        }
+        .wow {
+            visibility: hidden;
+        }
+        .wow.fadeInUp {
+            visibility: visible;
+            animation-name: fadeInUp;
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translate3d(0, 100%, 0);
+            }
+            to {
+                opacity: 1;
+                transform: none;
+            }
+        }
+        .bg-primary {
+            background-color: #007bff !important;
+        }
+        .bg-primary h1 {
+            color: white;
+            font-size: 2.5rem;
+        }
+        .bg-primary a {
+            color: white;
+            text-decoration: none;
+        }
+        .bg-primary a:hover {
+            text-decoration: underline;
+        }
+        .navbar {
+            background-color: #343a40;
+        }
+        .navbar-brand {
+            color: white;
+            font-size: 1.5rem;
+        }
+        .navbar-brand:hover {
+            color: #007bff;
+        }
+
+        .navbar-nav .nav-link {
+            color: white;
+            padding: 10px 15px;
+        }
+        .navbar-nav .nav-link:hover {
+            color: #007bff;
+        }
+        .navbar-toggler {
+            border: none;
+        }
+        .navbar-toggler .fa-bars {
+            color: white;
+        }
+        .navbar-collapse {
+            justify-content: flex-end;
+        }
+        .navbar-collapse .navbar-nav {
+            flex-direction: row;
+        }
+
+        .navbar-collapse .navbar-nav .nav-item {
+            margin-left: 15px;
+        }
+
+        .navbar-collapse .navbar-nav .nav-item.active .nav-link {
+            color: #007bff;
+            font-weight: bold;
+        }
+       
+
+    </style>
 	   
 </head>
 
@@ -49,7 +250,10 @@
     <div class="container-fluid position-relative p-0">
         <nav class="navbar navbar-expand-lg navbar-dark px-5 py-3 py-lg-0">
             <a href="{{url_for('first')}}" class="navbar-brand p-0">
-                <h1 class="m-0">Phishing Websites</h1>
+                <div class="heading">
+                <img src="../static/img/GSlogo.png" alt="logo" class="logo">
+                <h1 class="m-0">Guardian Shield</h1>
+            </div>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                 <span class="fa fa-bars"></span>
@@ -72,7 +276,7 @@
                     <h1 class="display-4 text-white animated zoomIn">Prediction</h1>
                     
                     <i class="far fa-circle text-white px-2"></i>
-                    <a href="" class="h5 text-white">Phishing Websites</a>
+                    <a href="" class="h5 text-white">Guardian Shield</a>
                 </div>
             </div>
         </div>

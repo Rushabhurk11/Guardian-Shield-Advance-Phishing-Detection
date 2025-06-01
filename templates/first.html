@@ -29,6 +29,160 @@
 
     <!-- Template Stylesheet -->
     <link href="../static/css/style.css" rel="stylesheet">
+    <style>
+
+        #loading {
+            background: url('../static/ajax-loader.gif') no-repeat center center;
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            z-index: 9999999;
+        }
+        .heading {
+            display: flex;
+            align-items: center;
+        }
+        .logo {
+            width: 50px;
+            height: 50px;
+            margin-right: 10px;
+        }
+        .navbar-brand h1 {
+            font-size: 24px;
+            color: #fff;
+            margin: 0;
+        }
+        .navbar {
+            background-color: #343a40; /* Dark background for the navbar */
+        }
+        .navbar-nav .nav-link {
+            color: #fff; /* White text for nav links */
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #ffc107; /* Change color on hover */
+        }
+        .carousel-item img {
+            height: 100vh; /* Full height for carousel images */
+            object-fit: cover; /* Cover the entire area */
+        }
+        .carousel-caption {
+            background: rgba(0, 0, 0, 0.5); /* Semi-transparent background for text */
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .carousel-caption h1 {
+            font-size: 3rem; /* Larger font size for the main heading */
+            color: #fff; /* White text for better contrast */
+        }
+        .carousel-caption h5 {
+            font-size: 1.5rem; /* Slightly larger font size for the subheading */
+            color: #ffc107; /* Yellow color for the subheading */
+        }
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #343a40; /* Dark background for the button */
+            color: #fff; /* White icon color */
+        }
+        .back-to-top:hover {
+            background-color: #ffc107; /* Change background on hover */
+            color: #000; /* Change icon color on hover */
+        }
+        .spinner {
+            border: 4px solid rgba(0, 0, 0, 0.1);
+            border-left-color: #007bff; /* Blue color for the spinner */
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+        .bg-header {
+            background: url('../static/img/header-bg.jpg') no-repeat center center;
+            background-size: cover;
+        }
+        .bg-header h1 {
+            font-size: 3rem;
+            color: #fff;
+        }
+        .bg-header a {
+            color: #ffc107; /* Yellow color for the link */
+            text-decoration: none;
+        }
+        .bg-header a:hover {
+            text-decoration: underline; /* Underline on hover */
+        }
+        .bg-primary {
+            background-color: #007bff !important; /* Primary color for the header */
+        }
+
+        .navbar-dark .navbar-nav .nav-link.active {
+            color: #ffc107; /* Yellow color for active nav link */
+        }
+        .navbar-dark .navbar-nav .nav-link:hover {
+            color: #ffc107; /* Yellow color on hover */
+        }
+
+        .navbar-dark .navbar-brand {
+            color: #fff; /* White color for the brand */
+        }
+
+        .navbar-dark .navbar-brand:hover {
+            color: #ffc107; /* Yellow color on hover */
+        }
+
+        .navbar-dark .navbar-toggler {
+            border-color: rgba(255, 255, 255, 0.1); /* Light border for the toggler */
+        }
+
+        .navbar-dark .navbar-toggler-icon {
+            background-image: url('data:image/svg+xml;charset=utf-8,%3Csvg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30"%3E%3Cpath stroke="%23fff" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" d="M4 7h22M4 15h22M4 23h22"/%3E%3C/svg%3E'); /* Custom icon for the toggler */
+        }
+        .navbar-dark .navbar-nav .nav-link {
+            color: #fff; /* White color for nav links */
+        }
+        .navbar-dark .navbar-nav .nav-link:hover {
+            color: #ffc107; /* Yellow color on hover */
+        }
+        .navbar-dark .navbar-nav .nav-link.active {
+            color: #ffc107; /* Yellow color for active nav link */
+        }
+        .navbar-dark .navbar-nav .nav-link.active:hover {
+            color: #fff; /* White color on hover for active link */
+        }
+        
+        .navbar-dark .navbar-nav .nav-link:focus {
+            color: #ffc107; /* Yellow color on focus */
+        }
+
+        .navbar-dark .navbar-nav .nav-link:focus:hover {
+            color: #fff; /* White color on hover for focused link */
+        }
+        .navbar-dark .navbar-nav .nav-link:focus {
+            outline: none; /* Remove default focus outline */
+            box-shadow: none; /* Remove box shadow on focus */
+        }
+        .navbar-dark .navbar-nav .nav-link:focus:not(:hover) {
+            color: #ffc107; /* Maintain yellow color when focused but not hovered */
+        }
+        
+
+        
+    
+
+    </style>
 </head>
 
 <body>
@@ -48,7 +202,11 @@
     <div class="container-fluid position-relative p-0">
         <nav class="navbar navbar-expand-lg navbar-dark px-5 py-3 py-lg-0">
             <a href="{{url_for('first')}}" class="navbar-brand p-0">
-                <h1 class="m-0">Phishing Websites</h1>
+            <div class="heading">
+                <img src="../static/img/GSlogo.png" alt="logo" class="logo">
+                <h1 class="m-0">Guardian Shield</h1>
+            </div>
+
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                 <span class="fa fa-bars"></span>
@@ -67,13 +225,12 @@
         <div id="header-carousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img class="w-100" src="../static/img/web5.jpg" alt="Image">
+                    <img class="w-100" src="../static/img/home1.jpg" alt="Image">
                     <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                         <div class="p-3" style="max-width: 900px;">
                            
-                            <h1 class="display-1 text-white mb-md-4 animated zoomIn">Detection of phishing websites </h1>
-							 <h5 class="text-white text-uppercase mb-3 animated slideInDown">using machine 
-learning</h5>
+                            <h1 class="display-1 text-white mb-md-4 animated zoomIn">Detecting phishing URL's </h1>
+							 <h5 class="text-white text-uppercase mb-3 animated slideInDown">Check before visit</h5>
                             
                         </div>
                     </div>
@@ -82,9 +239,8 @@ learning</h5>
                     <img class="w-100" src="../static/img/web1.jpg" alt="Image">
                     <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                         <div class="p-3" style="max-width: 900px;">
-                             <h1 class="display-1 text-white mb-md-4 animated zoomIn">Detection of phishing websites </h1>
-							 <h5 class="text-white text-uppercase mb-3 animated slideInDown">using machine 
-learning</h5>
+                             <h1 class="display-1 text-white mb-md-4 animated zoomIn">Detecting phishing URL's  </h1>
+							 <h5 class="text-white text-uppercase mb-3 animated slideInDown">Check before visit</h5>
                         </div>
                     </div>
                 </div>

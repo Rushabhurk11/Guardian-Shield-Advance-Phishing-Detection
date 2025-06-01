@@ -29,6 +29,97 @@
 
     <!-- Template Stylesheet -->
     <link href="../static/css/login.css" rel="stylesheet">
+    <style>
+
+        body {
+            background-image: url("../static/images/email3.jpg");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+
+        .heading {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo {
+            width: 50px;
+            height: 50px;
+            margin-right: 10px;
+        }
+
+        .navbar-brand h1 {
+            font-size: 24px;
+            color: #fff;
+        }
+        .bg-header {
+            background: rgba(9, 30, 62, 0.7);
+        }
+        .bg-header h1 {
+            color: #fff;
+        }
+        .bg-header a {
+            color: #fff;
+        }
+        .control-group {
+            margin-bottom: 15px;
+        }
+        .control-label {
+            font-weight: bold;
+        }
+        .form-control {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        .btn-primary {
+            background-color: #007bff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            color: #fff;
+            cursor: pointer;
+        }
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+        .spinner {
+            border: 4px solid rgba(0, 0, 0, 0.1);
+            border-top: 4px solid #007bff;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        #spinner {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.8);
+            z-index: 9999;
+        }
+
+        .show {
+            display: flex;
+        }
+        .hide {
+            display: none;
+        }
+
+        
+
+    </style>
 </head>
 
 <body>
@@ -48,7 +139,10 @@
     <div class="container-fluid position-relative p-0">
         <nav class="navbar navbar-expand-lg navbar-dark px-5 py-3 py-lg-0">
             <a href="{{url_for('first')}}" class="navbar-brand p-0">
-                <h1 class="m-0">Phishing Websites</h1>
+                <div class="heading">
+                <img src="../static/img/GSlogo.png" alt="logo" class="logo">
+                <h1 class="m-0">Guardian Shield</h1>
+            </div>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                 <span class="fa fa-bars"></span>
@@ -67,10 +161,10 @@
         <div class="container-fluid bg-primary py-5 bg-header" style="margin-bottom: 90px;">
             <div class="row py-5">
                 <div class="col-12 pt-lg-5 mt-lg-5 text-center">
-                    <h1 class="display-4 text-white animated zoomIn">Log</h1>
+                    <h1 class="display-4 text-white animated zoomIn">Login</h1>
                     
                     <i class="far fa-circle text-white px-2"></i>
-                    <a href="" class="h5 text-white">Phishing Websites</a>
+                    <a href="" class="h5 text-white">Guardian Shield</a>
                 </div>
             </div>
         </div>
@@ -101,7 +195,7 @@
     <div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
         <div class="container py-5">
             <div class="section-title text-center position-relative pb-3 mb-5 mx-auto" style="max-width: 600px;">
-                <h5 class="fw-bold text-primary text-uppercase">Detection of phishing websites</h5>
+                <h5 class="fw-bold text-primary text-uppercase">Detecting phishing URL's </h5>
                 <h1 class="mb-0">Login</h1>
             </div>
             
