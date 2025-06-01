@@ -8,4 +8,3 @@ whois==0.9.13
 gunicorn==20.1.0
 requests==2.25.1
 
-python 3.8
